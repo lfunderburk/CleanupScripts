@@ -15,14 +15,14 @@ Repository containing scripts to cleanup Callysto Curriculum and Catalogue Infor
 
       positional arguments:
         website_spreadsheet_id
-                              Google Spreadsheet ID associated to Curriculum Website ID.
+                                    Google Spreadsheet ID associated to Curriculum Website ID.
         website_spreadsheet_range
-                              Range of coverage specified by sheet name and range, i.e. 'Sheet1!A1:G82'
+                                    Range of coverage specified by sheet name and range, i.e. 'Sheet1!A1:G82'
         catalogue_spreadsheet_id
-                              Google Spreadsheet ID associated to Curriculum Catalogue ID.
+                                    Google Spreadsheet ID associated to Curriculum Catalogue ID.
         catalogue_spreadsheet_range
-                              Range of coverage specified by sheet name and range, i.e. 'Sheet1!A1:G82'
-        github_rep_path       Full path to cloned GitHub repository https://github.com/callysto/curriculum-notebooks
+                                    Range of coverage specified by sheet name and range, i.e. 'Sheet1!A1:G82'
+        github_rep_path             Full path to cloned GitHub repository https://github.com/callysto/curriculum-notebooks
 
       optional arguments:
         -h, --help            show this help message and exit
