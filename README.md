@@ -29,7 +29,7 @@ Repository containing scripts to cleanup Callysto Curriculum and Catalogue Infor
 
 Working example to spreadsheet [Curriculum notebooks table for website](https://docs.google.com/spreadsheets/d/1pw-p7uluSa7xWwHYn7ZgQ8jxkHwXnkDJa_NLR44TbS8/edit#gid=0) where its ID is 
 
-    1pw-p7uluSa7xWwHYn7ZgQ8jxkHwXnkDJa_NLR44TbS8, 
+    1pw-p7uluSa7xWwHYn7ZgQ8jxkHwXnkDJa_NLR44TbS8
     
 and range Sheet1!A1:G82. 
 
