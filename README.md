@@ -1,5 +1,20 @@
 # CleanupScripts
-Repository containing scripts to cleanup Callysto Curriculum and Catalogue Information
+
+Repository containing scripts to cleanup Callysto Curriculum and Catalogue Information.
+
+## Script Description
+
+Description: This script performs cross comparison of notebooks in the 'Curriculum notebooks table for website'
+(URL https://docs.google.com/spreadsheets/d/1pw-p7uluSa7xWwHYn7ZgQ8jxkHwXnkDJa_NLR44TbS8/edit?usp=sharing) 
+against notebooks found in GitHub repository https://github.com/callysto/curriculum-notebooks
+and determines what notebooks are in the repository that have not been added to spreadsheet. 
+
+Similarly, this script then compares 'Curriculum notebooks table for website'
+(URL https://docs.google.com/spreadsheets/d/1pw-p7uluSa7xWwHYn7ZgQ8jxkHwXnkDJa_NLR44TbS8/edit?usp=sharing)  
+against 'Callysto Notebook Development Catalogue' (URL https://docs.google.com/spreadsheets/d/1ZJ1jux31RFV_dgiBLS4DWLlKSPvjFQAjvvHj5y0hwfE/edit?usp=sharing)
+and determines what notebooks are missing in the  'Curriculum notebooks table for website' table
+
+## Script Usage
 
     usage python3 CatalogueVCurriculumNotebooks.py -h 
 
