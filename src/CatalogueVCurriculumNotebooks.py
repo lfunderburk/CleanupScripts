@@ -21,6 +21,7 @@ from google.auth.transport.requests import Request
 import re
 import pandas as pd 
 import os
+import argparse 
 
 '''
 Client ID
@@ -65,19 +66,55 @@ def get_sheet(spreadsheet_ID,range_name,JSON_credentials):
 
     return values
 
+def getArguments():
+    
+    # 
+    parser = argparse.ArgumentParser(
+        formatter_class = argparse.RawDescriptionHelpFormatter, 
+        description="Cross comparison of content between GitHub repostory and Listed Notebooks in Callysto Curriculum Website."
+    )
+    parser.add_argument(
+    "website_spreadsheet_id",
+        help="Google Spreadsheet ID associated to Curriculum Website ID."
+    )
+    
+    parser.add_argument(
+    "website_spreadsheet_range",
+        help="Range of coverage specified by sheet name and range, i.e. 'Sheet1!A1:G82'"
+    )
+    
+    parser.add_argument(
+    "catalogue_spreadsheet_id",
+        help="Google Spreadsheet ID associated to Curriculum Catalogue ID."
+    )
+    
+    parser.add_argument(
+    "catalogue_spreadsheet_range",
+        help="Range of coverage specified by sheet name and range, i.e. 'Sheet1!A1:G82'"
+    )
+    
+    parser.add_argument(
+    "github_rep_path",
+        help="Full path to cloned GitHub repository https://github.com/callysto/curriculum-notebooks"
+    )
+    
+    options = parser.parse_args()
+    return options
+    
+
 if __name__ == '__main__':
     
     # variable area
     # If modifying these scopes, delete the file token.pickle.
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
-
-    # The ID and range of a sample spreadsheet.
-    CurriculumWebsite_SPREADSHEET_ID = '1pw-p7uluSa7xWwHYn7ZgQ8jxkHwXnkDJa_NLR44TbS8'
-    Website_RANGE_NAME = 'Sheet1!A1:G82'
-    CurriculumCatalogue_SPREADSHEET_ID = '1ZJ1jux31RFV_dgiBLS4DWLlKSPvjFQAjvvHj5y0hwfE'
-    Catalogue_RANGE_NAME = 'Catalogue!A1:I121'
+    
+    options = getArguments()
+    CurriculumWebsite_SPREADSHEET_ID = options.website_spreadsheet_id
+    Website_RANGE_NAME = options.website_spreadsheet_range
+    CurriculumCatalogue_SPREADSHEET_ID = options.catalogue_spreadsheet_id
+    Catalogue_RANGE_NAME = options.catalogue_spreadsheet_range
+    path_to_cloned_repository = options.github_rep_path
     JSON_CREDENTIALS = 'client_secret_44425752492-sr2cun8r7jn2s3n1f14ue760hgi5jv9u.apps.googleusercontent.com.json' 
-    path_to_cloned_repository = '/Users/laura.gf/Documents/Callysto/curriculum-notebooks/'
     
     ####################################################################################################################
     # Google Sheet Curriculum Data (website) 
