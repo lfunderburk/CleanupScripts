@@ -44,4 +44,7 @@ For this example, we git cloned the repository [Callysto Curriculum Notebooks](h
 
         /Users/laura.gf/Documents/Callysto/curriculum-notebooks/
 
+
+Begin working example 
+
         %python3 CatalogueVCurriculumNotebooks.py '1pw-p7uluSa7xWwHYn7ZgQ8jxkHwXnkDJa_NLR44TbS8' 'Sheet1!A1:G82' '1ZJ1jux31RFV_dgiBLS4DWLlKSPvjFQAjvvHj5y0hwfE' 'Catalogue!A1:I121' '/Users/laura.gf/Documents/Callysto/curriculum-notebooks/'
