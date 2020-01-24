@@ -1,6 +1,6 @@
 # Author: Laura Gutierrez Funderburk
 # Created on December 16 2019
-# Last modified on December 23 2019
+# Last modified on January 23 2020
 '''
 Description: This script performs cross comparison of notebooks in the 'Curriculum notebooks table for website'
 (URL https://docs.google.com/spreadsheets/d/1pw-p7uluSa7xWwHYn7ZgQ8jxkHwXnkDJa_NLR44TbS8/edit?usp=sharing) 
@@ -156,12 +156,15 @@ if __name__ == '__main__':
     root_s = []
     file_s = []
     for root, dirs, files in os.walk(path_to_cloned_repository):
-        # If a notebook is found in any of the files 
-        if any(".ipynb" in x for x in files):
-            # Get path
-            root_s.append(root)
-            # Get file names 
-            file_s.append(files)
+        if "checkpoints" in root:
+            continue
+        else: 
+            # If a notebook is found in any of the files 
+            if any(".ipynb" in x for x in files):
+                # Get path
+                root_s.append(root)
+                # Get file names 
+                file_s.append(files)
             
     # Create dataframe from repository data
     LC_data = pd.DataFrame.from_dict({"Path":root_s,"Files":file_s})
@@ -169,12 +172,10 @@ if __name__ == '__main__':
     # Cleanup
     LC_data = LC_data.replace(path_to_cloned_repository,"",regex=True)
     LC_data[['Subject','Topic']] = LC_data["Path"].str.split("/",n=1,expand=True)
-    # Subject to change below
-    LC_data["Subject"] = LC_data["Subject"].replace("Mathematics",'Math',regex=True)
-    LC_data["Subject"] = LC_data["Subject"].replace("Technology","Computer Science",regex=True)
+    
     
     # Create links to peform cross comparison
-    LC_data["Link"] = "https://github.com/callysto/curriculum-notebooks/blob/master/" + LC_data["Path"] + "/"
+    LC_data["Link"] = "https://github.com/callysto/curriculum-notebooks/tree/refactor/" + LC_data["Path"] + "/"
     
     # Compare links in both
     Link_intersection = set(LC_data["Link"]).intersection(set(CC_data["CrossCompLink"]))
@@ -197,8 +198,8 @@ if __name__ == '__main__':
                 final_name = re.sub("-", " ", final_name)
                 final_name = re.sub("_", " ", final_name)
 
-                CC_data.loc[36+i] = [vals[2],\
-                                       "", final_name,\
+                CC_data.loc[len(CC_data)-1+i] = [vals[2],\
+                                       "", "",final_name,\
                                     "",vals[4] + file_nam,"",""]  # adding a row
 
             else:
